@@ -13,11 +13,15 @@ function submitHandler(e){
     name: name, 
     category: category,
   }
+  // console.log(newItem, 'in ItemForm')
   onItemFormSubmit(newItem)
+  setName('')
+  setCategory("Produce")
+
 }
 
   return (
-    <form className="NewItem">
+    <form className="NewItem" onSubmit={submitHandler}>
       <label>
         Name:
         <input  value={name} onChange={e => setName(e.target.value)} type="text" name="name" />
@@ -32,7 +36,7 @@ function submitHandler(e){
         </select>
       </label>
 
-      <button onSubmit={submitHandler} type="submit">Add to List</button>
+      <button  type="submit">Add to List</button>
     </form>
   );
 }
