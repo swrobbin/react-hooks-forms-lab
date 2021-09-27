@@ -12,7 +12,7 @@ function ShoppingList({ items }) {
     setSelectedCategory(event.target.value);
   }
 
-  const itemsToDisplay = items.filter((item) => {
+  const itemsToDisplay = allItems.filter((item) => {
     // if (selectedCategory === "All") return true;
 
     // return item.category === selectedCategory;
@@ -24,10 +24,11 @@ const updateItemsToDisplay = itemsToDisplay.filter((item) => {
 })
 
 function onItemFormSubmit(newItem){
+console.log(allItems)
 setAllItems([...items, newItem])
-console.log(newItem)
-}
 
+}
+console.log(allItems, "after")
   return (
     <div className="ShoppingList">
       <ItemForm onItemFormSubmit={onItemFormSubmit} />
